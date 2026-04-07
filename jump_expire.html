@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>跳转中...</title>
+<script>
+// 你的真实永久二维码链接（只写这里一次）
+const realUrl = "https://jump.m.cmbchina.com/RA8pNMAQ?EntryCode=HQDwlp&clean=false";
+
+// 从链接里自动获取过期时间，格式：?expire=2026-04-10 23:59
+const params = new URLSearchParams(location.search);
+const expireStr = params.get('expire');
+
+if (expireStr) {
+  const expireTime = new Date(expireStr);
+  const now = new Date();
+  if (now > expireTime) {
+    document.write("❌ 二维码已过期");
+  } else {
+    location.href = realUrl;
+  }
+} else {
+  location.href = realUrl;
+}
+</script>
+</head>
+<body>正在打开招行APP，请稍候...</body>
+</html>
